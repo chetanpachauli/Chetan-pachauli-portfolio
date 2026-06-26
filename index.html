@@ -12,7 +12,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
 <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
 <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
-<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone@7.23.5/babel.min.js"></script>
 <style>
 /* ═══════════════════════════════════════════════
    DESIGN TOKENS
@@ -342,14 +342,14 @@ const PREV={
 /* ─── DATA ─── */
 const PROJECTS=[
   {id:'skillsync',title:'SkillSync',sub:'AI Resume Builder & Career Prep',cat:'Full-Stack · AI',filter:'fullstack',clr:'#e879f9',
-   desc:'Full-stack AI-powered platform combining resume building, AI career coaching, and interview preparation — all in one. Features a multi-step resume builder, real-time chat with Gemini AI for career insights, interview Q&A prep, and secure authentication via NextAuth.js.',
-   tech:['Next.js 15','React','MongoDB','Gemini API','NextAuth.js','TypeScript'],
-   feats:['AI-Powered Resume Builder','Chat with AI (Career & Interview Prep)','Gemini API Career Insights','Multi-step Form Architecture','Secure NextAuth.js Login','99.9% Uptime · Vercel'],
-   live:'https://skill-sync-tau-vert.vercel.app/',gh:'https://github.com/chetanpachauli/SkillSync',dep:'Vercel'},
+   desc:'Full-stack AI-powered career prep platform featuring an ATS-friendly resume builder, voice-interactive AI mock interviews, custom AI career roadmap generation, Gemini API coaching, and premium subscriptions integrated using Razorpay.',
+   tech:['Next.js 15','Gemini API','Razorpay','MongoDB','NextAuth.js','TypeScript'],
+   feats:['ATS-Friendly Resume Builder','Voice-Interactive AI Mock Interview','AI Career Roadmap Generator','Razorpay Subscription Integration','Secure NextAuth.js Login','Gemini API Coaching'],
+   live:'https://skillsync-career.vercel.app/',gh:'https://github.com/chetanpachauli/SkillSync',dep:'Vercel'},
   {id:'insta',title:'Insta-Chat Web App',sub:'Social Media Platform',cat:'MERN Stack',filter:'mern',clr:'#38bdf8',
-   desc:'Full-featured social media platform with real-time messaging, post creation, user authentication, and an interactive feed — built on the complete MERN stack.',
-   tech:['React.js','Node.js','Express.js','MongoDB','Mongoose','JWT'],
-   feats:['User Authentication','Post Creation & Upload','Like & View Posts','Real-time Messaging','Backend APIs & DB handling'],
+   desc:'Full-featured Instagram clone supporting real-time chat with end-to-end encryption, high-quality audio and video calling via WebRTC, interactive stories and reels sharing, Google login, and dynamic feeds built on the MERN stack.',
+   tech:['React.js','Node.js','Express.js','Socket.io','WebRTC','MongoDB'],
+   feats:['Real-time Audio & Video Calling','Interactive Story & Reel Sharing','End-to-End Encryption & Decryption','Google OAuth Login & JWT Auth','Socket.io Real-time Messaging','Post Creation & Interactive Feed'],
    live:'https://insta-chat-app-five.vercel.app/',gh:'https://github.com/chetanpachauli',dep:'Vercel + Render'},
   {id:'ecom',title:'E-Commerce Platform',sub:'Full Frontend Store',cat:'Frontend',filter:'frontend',clr:'#a78bfa',
    desc:'Responsive e-commerce website with product listing, search & filter, cart management via Context API, and seamless React Router navigation.',
@@ -376,7 +376,8 @@ const SKILLS={
 };
 
 const TIMELINE=[
-  {yr:'2025',title:'SkillSync — AI Resume Builder & Career Prep',org:'Next.js 15 · Gemini API · NextAuth.js · MongoDB',info:'Full-Stack AI Platform · Live on Vercel',type:'proj'},
+  {yr:'2026 - Pres',title:'Web Developer',org:'Valuenable Private Limited',info:'Full-stack web development, API integrations, and maintaining clean codebases.',type:'work'},
+  {yr:'2025',title:'SkillSync — AI Resume Builder & Career Prep',org:'Next.js 15 · Gemini API · Razorpay · ATS Analyzer',info:'Voice AI Interviews & Subscriptions · Live on Vercel',type:'proj'},
   {yr:'2025',title:'Diploma — Information Technology',org:'Government Polytechnic Lohaghat',info:'CGPA: 8.0',type:'edu'},
   {yr:'2025',title:'Full Stack Development',org:'ACTECAL Pvt. Ltd.',info:'Certification & Training',type:'cert'},
   {yr:'2025',title:'Microsoft Power BI',org:'Founder Of Skill Course',info:'Data Analytics Certification',type:'cert'},
@@ -386,11 +387,11 @@ const TIMELINE=[
   {yr:'2020',title:'High School — Science',org:'V.V.M. Pati',info:'Class 10',type:'edu'},
 ];
 
-const TC={edu:'#38bdf8',cert:'#f59e0b',proj:'#a78bfa'};
-const TL={edu:'Education',cert:'Certification',proj:'Project'};
+const TC={edu:'#38bdf8',cert:'#f59e0b',proj:'#a78bfa',work:'#34d399'};
+const TL={edu:'Education',cert:'Certification',proj:'Project',work:'Experience'};
 
 const RESUME_DATA={
-  summary:'Entry-level Web Developer with hands-on experience in the MERN stack, Next.js, React.js, JavaScript, and REST APIs. Skilled in building responsive, user-friendly web applications with clean, maintainable code. Additionally proficient in Data Analysis using Python, NumPy, Pandas, Excel, and Power BI to derive actionable insights and create interactive data visualizations.',
+  summary:'Web Developer with hands-on experience in full-stack development, the MERN stack, Next.js, React.js, JavaScript, and REST APIs. Skilled in building responsive, user-friendly web applications with clean, maintainable code. Additionally proficient in Data Analysis using Python, NumPy, Pandas, Excel, and Power BI to derive actionable insights and create interactive data visualizations.',
   skills:{
     'Frontend':['HTML5','CSS3','JavaScript ES6+','React.js','Next.js 15','TypeScript','Tailwind CSS','Bootstrap'],
     'Backend':['Node.js','Express.js','REST APIs'],
@@ -398,6 +399,9 @@ const RESUME_DATA={
     'Data':['Python','NumPy','Pandas','Power BI','Microsoft Excel','SQL','Data Visualization'],
     'Tools':['Git','GitHub','VS Code','Postman','Vercel','Render'],
   },
+  exp:[
+    {p:'Web Developer',c:'Valuenable Private Limited',y:'May 2026 — Present',d:'Designing and developing full-stack web solutions, building robust API integrations, implementing state-of-the-art security, and enhancing dynamic UX features.'}
+  ],
   edu:[
     {d:'Diploma — Information Technology',s:'Government Polytechnic Lohaghat',y:'2025',x:'CGPA: 8.0'},
     {d:'Intermediate (PCM)',s:'G.I.C. Pati',y:'2022',x:'Class 12'},
@@ -779,7 +783,7 @@ function Resume(){
     a.click();
   },[]);
 
-  const ICON_BG={summary:'rgba(56,189,248,.14)',skills:'rgba(56,189,248,.14)',edu:'rgba(56,189,248,.14)',certs:'rgba(245,158,11,.14)'};
+  const ICON_BG={summary:'rgba(56,189,248,.14)',skills:'rgba(56,189,248,.14)',exp:'rgba(52,211,153,.14)',edu:'rgba(56,189,248,.14)',certs:'rgba(245,158,11,.14)'};
   return(
     <section id="resume" style={{padding:'96px 24px',background:'var(--s3)'}}>
       <div className="wrap">
@@ -826,8 +830,26 @@ function Resume(){
             ))}
           </div>
 
-          {/* Right col — Education + Certs */}
+          {/* Right col — Experience + Education + Certs */}
           <div style={{display:'flex',flexDirection:'column',gap:16}}>
+            <div className="rcard rv">
+              <div className="scan" style={{background:'linear-gradient(90deg,transparent,var(--grn),transparent)'}}/>
+              <div style={{display:'flex',alignItems:'center',gap:11,marginBottom:16}}>
+                <div className="rcard-icon" style={{background:ICON_BG.exp}}>💼</div>
+                <div>
+                  <div style={{fontFamily:'var(--fd)',fontWeight:700,fontSize:'.97rem',color:'var(--tx)'}}>Work Experience</div>
+                  <div style={{fontFamily:'var(--fm)',fontSize:'.65rem',color:'var(--mu)'}}>Professional Journey</div>
+                </div>
+              </div>
+              {RESUME_DATA.exp.map((e,i)=>(
+                <div key={i} style={{marginBottom:i<RESUME_DATA.exp.length-1?12:0,paddingBottom:i<RESUME_DATA.exp.length-1?12:0,borderBottom:i<RESUME_DATA.exp.length-1?'1px solid var(--b)':'none'}}>
+                  <div style={{fontFamily:'var(--fd)',fontWeight:700,fontSize:'.86rem',color:'var(--tx)',marginBottom:2}}>{e.p}</div>
+                  <div style={{fontSize:'.8rem',color:'var(--grn)',marginBottom:2}}>{e.c}</div>
+                  <div style={{fontFamily:'var(--fm)',fontSize:'.67rem',color:'var(--mu)',marginBottom:4}}>{e.y}</div>
+                  <div style={{fontSize:'.78rem',color:'var(--mu)',lineHeight:1.5}}>{e.d}</div>
+                </div>
+              ))}
+            </div>
             <div className="rcard rv">
               <div className="scan"/>
               <div style={{display:'flex',alignItems:'center',gap:11,marginBottom:16}}>
